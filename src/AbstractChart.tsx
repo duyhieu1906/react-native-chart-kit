@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {View} from 'react-native'
 import { Defs, Line, LinearGradient, Stop, Text } from "react-native-svg";
 
 import { ChartConfig, Dataset, PartialBy } from "./HelperTypes";
@@ -147,7 +148,8 @@ class AbstractChart<
     return [...new Array(count + 1)].map((_, i) => {
       const y = (basePosition / count) * i + paddingTop;
       return (
-        <Line
+       <View style={{position: 'absolute',zIndex:10}}>
+         <Line
           key={Math.random()}
           x1={paddingRight}
           y1={y}
@@ -155,6 +157,7 @@ class AbstractChart<
           y2={y}
           {...this.getPropsForBackgroundLines()}
         />
+       </View>
       );
     });
   };
