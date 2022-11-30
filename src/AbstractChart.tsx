@@ -171,6 +171,8 @@ class AbstractChart<
       verticalLabelsHeightPercentage = DEFAULT_X_LABELS_HEIGHT_PERCENTAGE
     } = config;
     return (
+      <View style={{position: 'absolute',zIndex:10}}>
+
       <Line
         key={Math.random()}
         x1={paddingRight}
@@ -179,6 +181,8 @@ class AbstractChart<
         y2={height * verticalLabelsHeightPercentage + paddingTop}
         {...this.getPropsForBackgroundLines()}
       />
+             </View>
+
     );
   };
 
